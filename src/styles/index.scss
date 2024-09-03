@@ -1,0 +1,11 @@
+// import google font
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");
+
+@import "./bootstrap.scss";
+@import "./utils/mixins.scss";
+@import "./base/variable.scss";
+@import "./base/typography";
+@import "./components/buttons.scss";
+@import "./layout/header.scss";
+
+@import "./base/global.scss";

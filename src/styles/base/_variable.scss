@@ -1,0 +1,52 @@
+:root {
+  /* Font family */
+  --head-font: "Kanit", sans-serif;
+
+  /* Color styles */
+  /* Primary and secondary colors */
+  --primary-1: 255, 179, 64; /* Warm Yellow */
+  --primary-2: 122, 110, 255; /* Soft Purple */
+  --primary-3: 255, 77, 66; /* Bright Red */
+  --secondary-1: 13, 226, 124; /* Fresh Green */
+
+  /* Neutral colors */
+  --n10: 250, 250, 251; /* Off White */
+  --n20: 245, 246, 247; /* Light Grey */
+  --n30: 235, 236, 239; /* Soft Grey */
+  --n40: 223, 224, 228; /* Light Slate Grey */
+  --n50: 193, 196, 204; /* Cool Grey */
+  --n60: 178, 182, 191; /* Greyish Blue */
+  --n70: 166, 170, 181; /* Medium Grey */
+  --n80: 151, 156, 168; /* Grey Blue */
+  --n90: 136, 142, 156; /* Darker Grey Blue */
+  --n100: 121, 128, 144; /* Slate Grey */
+  --n200: 106, 114, 131; /* Steel Blue */
+  --n300: 91, 100, 119; /* Charcoal Blue */
+  --n400: 79, 88, 109; /* Deep Slate */
+  --n500: 64, 74, 96; /* Dark Slate Blue */
+  --n600: 52, 62, 86; /* Very Dark Slate Blue */
+  --n700: 34, 46, 72; /* Midnight Blue */
+  --n800: 19, 32, 59; /* Deep Navy */
+  --n900: 7, 20, 49; /* Almost Black Blue */
+  --n0: 255, 255, 255; /* Pure White */
+
+  /* Background colors */
+  --bg-1: 28, 29, 32; /* Very Dark Grey */
+  --bg-2: 38, 38, 41; /* Dark Charcoal */
+  --bg-3: 59, 59, 60; /* Charcoal Grey */
+
+  /* Transition */
+  --transition: all 0.5s ease-in-out;
+
+  /* Box shadow */
+  --shadow: 0px 6px 30px 0px rgba(0, 0, 0, 0.6);
+
+  /* Gradient */
+  --gradient: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 45.21%,
+    rgba(0, 0, 0, 0.44) 67.45%,
+    #000 100%
+  );
+}

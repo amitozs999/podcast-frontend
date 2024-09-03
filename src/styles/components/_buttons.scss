@@ -1,0 +1,129 @@
+.bttn-1 {
+  display: inline-flex;
+  padding: 12px 12px 12px 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  border-radius: 32px;
+  transition: var(--transition);
+  background: rgb(var(--primary-1)); //orange
+  color: rgb(var(--n900)); //black text   ka
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-sizing: border-box;
+
+  //default icon  ka color for butn1 for both
+
+  .icon {
+    @include box(24);
+
+    font-weight: 600;
+    color: rgb(var(--primary-1)); // yellow
+    background: rgb(var(--bg-1)); // black
+    transition: var(--transition);
+    border-radius: 50%;
+    font-size: 16px;
+    box-sizing: border-box;
+
+    @include minQuery(991) {
+      @include box(32);
+    }
+  }
+
+  //first button ke liye change icon and background colors
+  &.bttn-outline {
+    border: 1.5px solid rgb(var(--primary-1));
+    background: unset; //black
+    color: rgb(var(--primary-1)); //orange
+
+    .icon {
+      color: rgb(var(--n900)); //black
+      background: rgb(var(--primary-1)); //orange
+    }
+
+    &:hover {
+      //hover on butn
+      color: rgb(var(--n0)); //white color   text
+      border-color: rgb(var(--n0)); //white color
+
+      .icon {
+        color: rgb(var(--primary-2)); //purple
+      }
+    }
+  }
+
+  //   &.alt-position {
+  //     &::before {
+  //       top: unset;
+  //       left: unset;
+  //       bottom: 0;
+  //       right: 0;
+  //       transform: translate(50%, 50%);
+  //     }
+  //   }
+}
+
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: rgb(var(--n0));
+
+  &::placeholder {
+    color: rgb(var(--n40));
+    font-weight: 300;
+  }
+
+  &::-internal-autofill-selected {
+    background-color: rgb(var(--bg-1)) !important;
+  }
+}
+
+.icon-btn {
+  .icon {
+    @include box(48);
+    background: rgb(var(--primary-1));
+    color: rgb(var(--n900));
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: var(--transition);
+
+    //front be same shape ka blue color ka button bhi dal diya
+    //height wigth 0 rakhi he
+    //jab hover karega toh make it visible by adding height and width
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      transition: var(--transition);
+      background: rgb(var(--primary-2));
+      border-radius: inherit;
+      width: 0;
+      height: 0;
+      z-index: -1;
+    }
+  }
+
+  @include maxQuery(575) {
+    .icon {
+      @include box(32);
+    }
+  }
+
+  &:hover {
+    .icon {
+      color: rgb(var(--n0));
+
+      &::before {
+        width: 300%;
+        height: 300%;
+      }
+    }
+  }
+}

@@ -1,0 +1,369 @@
+header {
+  z-index: 100;
+  overflow: initial;
+  transition: var(--transition);
+}
+
+.header-section {
+  .nav-wrapper {
+    /* Base styles for mobile devices */
+    padding: 0 10px;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+      padding: 0 20px; /* For tablets and lareg phones */
+    }
+
+    @media (min-width: 992px) {
+      padding: 0 20px; /* Same as tablets, can adjust if needed */
+    }
+
+    @media (min-width: 1200px) {
+      padding: 0px; /* Padding for large desktops */
+    }
+
+    @media (min-width: 1400px) {
+      padding: 0 40px; /* Padding for extra-large desktops */
+      gap: 20px;
+    }
+
+    @media (min-width: 1700px) {
+      padding: 0 80px; /* Padding for very large desktops */
+      gap: 40px;
+    }
+
+    .menu-toggler {
+      //here desktop first coz menu only shown below 991px/mobile me
+
+      @media (max-width: 991px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgb(var(--bg-1));
+        padding: 40px;
+        width: 100%;
+        height: 95vh;
+        overflow: hidden;
+        overflow-y: auto;
+        transform: translateY(-100%);
+        transition: all 0.5s ease-in-out;
+
+        &.active {
+          top: 60px;
+          transform: translateY(0);
+          //jesi hi avtive show menu on the screen on mobile
+        }
+      }
+
+      @media (max-width: 768px) {
+        padding: 20px;
+      }
+
+      @media (max-width: 575px) {
+        padding: 16px;
+      }
+    }
+  }
+
+  .logo {
+    // Mobile-first styles
+    max-width: 150px; // Default max-width for mobile
+    width: 100%; // Make the logo responsive
+
+    // Styles for larger screens
+    @media (min-width: 1300px) {
+      max-width: 200px; // Increase max-width for larger screens
+    }
+  }
+}
+
+.navbar-toggler-btn {
+  width: 40px;
+  height: 6px;
+  position: relative;
+  right: 0;
+  transition: 0.3s ease-in-out;
+  top: -12px;
+
+  span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: rgb(var(--primary-1));
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.3s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 12px;
+    }
+
+    &:nth-child(4) {
+      top: 24px;
+    }
+  }
+
+  &.open {
+    span {
+      &:nth-child(1) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        top: 18px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+    width: 30px;
+
+    span {
+      height: 2px;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        top: 9px;
+      }
+
+      &:nth-child(4) {
+        top: 18px;
+      }
+    }
+  }
+}
+
+.search-wishlist-area,
+.search-area {
+  // Base styles for mobile-first approach
+  max-width: 100%;
+  width: 100%;
+
+  // Adjust styles for tablets and larger devices
+  @media (min-width: 992px) {
+    max-width: 250px;
+  }
+
+  @media (min-width: 1100px) {
+    max-width: 250px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 350px;
+  }
+
+  // Adjust styles for very large screens
+  @media (min-width: 1600px) {
+    max-width: 440px;
+  }
+
+  .search-box {
+    max-width: 370px;
+    width: 100%;
+
+    // @media (max-width: 1600px) {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -250%);
+    //   z-index: 10;
+    //   max-width: 600px;
+
+    //   &.active {
+    //     transform: translate(-50%, 100%);
+    //   }
+    // }
+
+    @media (max-width: 991px) {
+      //upper wali also applied so position and tranform unset kardo
+      position: unset;
+      transform: unset;
+      max-width: 100%;
+
+      .input-area {
+        .icon {
+          @include box(24);
+
+          svg {
+            width: 18px;
+            height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// input field
+// .input-area {
+//   display: flex;
+//   align-items: center;
+//   padding: 8px 32px;
+//   border-radius: 32px;
+//   background: rgb(var(--bg-3)); //grey
+//   gap: 8px;
+
+//   @include minQuery(480) {
+//     button {
+//       padding: 8px 8px 8px 32px;
+//     }
+//   }
+// }
+
+.wishlist-btn {
+  @include box(48);
+  background: rgb(var(--bg-3));
+  position: relative;
+  transition: var(--transition);
+
+  color: rgb(var(--n0));
+
+  &:hover {
+    background: rgb(var(--primary-2));
+    color: rgb(var(--n900));
+  }
+
+  .badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateY(-50%);
+    @include box(22);
+    background: rgb(var(--primary-1));
+    color: rgb(var(--n900));
+    font-size: 14px;
+    transition: var(--transition);
+  }
+
+  @media (max-width: 1199px) {
+    @include box(36);
+
+    .badge {
+      @include box(18);
+      font-size: 14px;
+    }
+  }
+}
+
+.nav-menu-wrapper {
+  .menu-item {
+    &.active {
+      //jonsi bhi menu item active he
+      button {
+        color: rgb(var(--primary-1)); //usake button ka color orange
+      }
+    }
+
+    .sub-menu {
+      .active {
+        //submenu ke under jo bhi active elem he
+        color: rgb(var(--primary-1)); //uska color orange
+      }
+    }
+
+    @media (max-width: 1199px) {
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  //mobile liye
+  @media (max-width: 991px) {
+    .nav-menu {
+      display: grid;
+      overflow-x: hidden;
+      width: 100%;
+
+      .menu-item {
+        position: relative;
+        margin-bottom: 10px;
+      }
+
+      .sub-menu {
+        margin-left: 20px;
+        margin-top: 10px;
+        background: rgb(var(--bg-3));
+        padding: 20px;
+        border-radius: 10px;
+
+        li {
+          padding: 5px 12px;
+        }
+      }
+    }
+  }
+
+  //laptop ke liye enter
+  @media (min-width: 992px) {
+    display: flex;
+
+    .menu-item {
+      position: relative;
+      color: rgb(var(--n10));
+
+      .sub-menu {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        opacity: 0;
+        width: max-content;
+        visibility: hidden;
+        transform: translateY(20px);
+        text-wrap: nowrap;
+        transition: all 0.5s ease-in-out;
+        display: initial !important;
+        background: rgb(var(--bg-3));
+        color: rgb(var(--n10));
+        padding: 20px;
+        border-radius: 8px;
+
+        li {
+          padding: 5px 0;
+        }
+      }
+
+      &:hover {
+        button {
+          color: rgb(var(--primary-1));
+        }
+
+        > .sub-menu {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+
+          .menu-link {
+            transition: all 0.5s ease-in-out;
+
+            &:hover {
+              transform: translateX(10px);
+              color: rgb(var(--primary-1));
+            }
+          }
+        }
+      }
+    }
+  }
+}
